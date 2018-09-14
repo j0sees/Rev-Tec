@@ -1,18 +1,16 @@
 import numpy as np
-import csv
-import configparser
 
 # este script genera los datos y los guarda en un numpy array
 
 class experimento():
-    def __init__(self, nGotas = 10, nLotes = 100, saturacion = 15, *args):
+    def __init__(self, nGotas=10, nLotes=100, saturacion=15, nDim=20):# , *args):
         self.nGotas = nGotas
         self.nLotes = nLotes
         self.saturacion = saturacion
-        self.grilla = np.array([args])
-        self.datos = np.array([args,nLotes])
-    
-    def WriteConfigFile(self, nombreArchivo):
+        self.grilla = np.zeros([nDim])#np.zeros([args])
+        self.datos = np.zeros([nDim,nLotes])#([args, nLotes])
+
+    def EscribirArchivoConfig(self, nombreArchivo):
         """
         Esta función escribe el archivo de configuración asociado a cada corrida de la simulación
         """
@@ -25,12 +23,13 @@ class experimento():
         # Writing our configuration file to 'example.cfg'
         with open(fileName, 'w') as configfile:
             config.write(configfile)
-    
-    def Escribir_datos(self):
+
+    def EscribirDatos(self):
         np.savetxt('test.out', self.datos, delimiter=',')
-    
+
     def Correr(self):
-        for iLot in range(nLotes):
+        for iLot in range(self.nLotes):
             # para el número indicado de lotes
-            for iGot in range(nGotas):
-                sefl.grilla[np.random.randint(0,len(self.grilla))] =+1
+            for iGot in range(self.nGotas):
+                self.grilla[np.random.randint(0, len(self.grilla))] +=1
+            self.datos[iLot] = self.grilla
