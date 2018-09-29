@@ -28,9 +28,9 @@ class PlotEnv:
         shrink_pct = 1
 
         self.Figura.suptitle('Visualización de las gotas sobre la grilla', fontweight='bold')
-        self.vector = np.zeros([nLot,nDim])
-        self.Plot = self.grilla.imshow(self.vector, origin='upper', cmap='Blues', interpolation='none', vmin=0,vmax=saturacion)
-        cbar1 = self.Figura.colorbar(self.Plot, ax=self.grilla, ticks=[], orientation='vertical',pad=pad_dist, shrink=shrink_pct)
+        self.vector = np.zeros([nLot, nDim])
+        self.Plot = self.grilla.imshow(self.vector, origin='upper', cmap='Blues', interpolation='none', vmin=0, vmax=saturacion)
+        cbar1 = self.Figura.colorbar(self.Plot, ax=self.grilla, ticks=[], orientation='vertical', pad=pad_dist, shrink=shrink_pct)
 
         plt.ion()
         #plt.pause(0.001)
@@ -46,3 +46,11 @@ class PlotEnv:
 
 #        plt.savefig('best_unique_genome_{0}/cell_system-{1:03d}.png'.format(iGenome + 1, tStep, ), format='png',bbox_inches='tight')
         plt.show()
+
+    def HistogramaColor(self):
+    # contar cuantas celdas tienen uns unidad, cuantas tienen 2, etc...
+    # hacer un histograma para cada categoría de color despues de cierta cantidad de lotes.
+
+    def HistogramaSTD(self):
+
+    # calcular el promedio de la distribucion para cada grupo de lotes y su desviación estándar.

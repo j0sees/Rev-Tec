@@ -37,5 +37,6 @@ class experimento():
             # para el número indicado de lotes
             for iGot in range(self.nGotas):
                 self.grilla[np.random.randint(0, len(self.grilla))] +=1
-            print(self.grilla)
+            #print(self.grilla)
             self.datos[iLot,:] = self.grilla
+            # la simulacion debe detenerse cuando cada esoacia ha alcanzado la saturacion

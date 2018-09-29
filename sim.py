@@ -3,7 +3,8 @@ import numpy as np
 if __name__ == '__main__':
     import experimento, visualizacion
 
-    prueba = experimento.experimento(10, 10, 15, 5)
+#                                   nGotas, nLotes, saturacion, nDim
+    prueba = experimento.experimento(50,    1000,     15,         1000)
     prueba.Correr()
     prueba.EscribirDatos('prueba')
     plot = visualizacion.PlotEnv('prueba')
