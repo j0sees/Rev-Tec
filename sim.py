@@ -4,15 +4,14 @@ if __name__ == '__main__':
     import experimento, visualizacion
 
 #                                   nGotas, nLotes, saturacion, nDim
-    prueba = experimento.experimento(50,    1000,     15,         1000)
+    prueba = experimento.experimento(1000,    100,     15,         1000)
     prueba.Correr()
     prueba.EscribirDatos('prueba')
     plot = visualizacion.PlotEnv('prueba')
 
     with open('prueba.data', 'r') as dataFile:
         dato = np.loadtxt(dataFile, delimiter=',')
+    print(dato)
 
-#    m,n = np.shape(dato)
-
-#    for iFila in range(n):
-    plot.ActualizarVis(dato)
+#    plot.ActualizarVis(dato)
+    plot.HistogramaColor(dato)
